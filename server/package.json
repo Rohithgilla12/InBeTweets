@@ -1,0 +1,44 @@
+{
+  "name": "inbetweets-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/connect-redis": "^0.0.16",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
+    "@types/express-session": "^1.17.3",
+    "@types/node": "^8.0.29",
+    "@types/nodemailer": "^6.4.0",
+    "@types/redis": "^2.8.28",
+    "class-validator": "^0.13.1",
+    "nodemon": "^2.0.6",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.19.2",
+    "connect-redis": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "graphql": "^15.4.0",
+    "mysql": "^2.14.1",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.10",
+    "twitter-api-v2": "^0.3.0",
+    "twitter-v2": "^1.0.1",
+    "type-graphql": "^1.1.1",
+    "typeorm": "0.2.30"
+  }
+}

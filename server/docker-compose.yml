@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  database:
+    environment:
+      POSTGRES_DB: inbetweets_db
+      POSTGRES_PASSWORD: inbetweets
+    image: postgres:12.4
+    ports:
+      - 127.0.0.1:5432:5432/tcp
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data:rw
+  redis:
+    image: redis:6.0.6
+    ports:
+      - 127.0.0.1:6379:6379/tcp
+    restart: always
+    volumes:
+      - redis_data:/data:rw
+volumes:
+  pg_data: {}
+  redis_data: {}
