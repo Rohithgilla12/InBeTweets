@@ -1,3 +1,4 @@
+import { Tweet } from "./entities/Tweet";
 import { FeedResolver } from "./resolvers/feed";
 import { TweetResolver } from "./resolvers/tweet";
 
@@ -10,6 +11,7 @@ import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 import { __prod__ } from "./constants";
 import TwitterApi from "twitter-api-v2";
+import { TwitterMiddleware } from "./twitterMiddleware";
 
 const main = async () => {
   const conn = await createConnection();
@@ -22,6 +24,12 @@ const main = async () => {
   }).readOnly;
 
   await conn.runMigrations();
+
+  const middleware = new TwitterMiddleware(twitterClient);
+
+  console.log(await Tweet.find({}));
+
+  // const id: number = 34;
 
   const app = express();
 
@@ -40,7 +48,7 @@ const main = async () => {
     context: ({ req, res }) => ({
       req,
       res,
-      twitterClient,
+      middleware,
     }),
   });
 

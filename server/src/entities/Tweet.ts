@@ -17,6 +17,10 @@ export class Tweet extends BaseEntity {
 
   @Field()
   @Column()
+  tweetId!: string;
+
+  @Field()
+  @Column()
   authorId!: string;
 
   @Field({ nullable: true })

@@ -25,6 +25,10 @@ export class Feed extends BaseEntity {
   @Column()
   name!: String;
 
+  @Field(() => [String])
+  @Column("text", { array: true })
+  usernames: string[];
+
   @Field(() => String)
   @Column()
   startDate!: Date;
