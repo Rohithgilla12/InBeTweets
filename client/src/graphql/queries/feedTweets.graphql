@@ -1,0 +1,9 @@
+query FeedTweets($id: Int!) {
+  tweets(id: $id) {
+    id
+    tweetId
+    authorId
+    text
+    timeStamp
+  }
+}

@@ -1,5 +1,13 @@
 import { Feed } from "./../entities/Feed";
-import { Resolver, Query, Mutation, Arg, InputType, Field } from "type-graphql";
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Arg,
+  InputType,
+  Field,
+  Int,
+} from "type-graphql";
 
 @InputType()
 class FeedInput {
@@ -31,8 +39,13 @@ export class FeedResolver {
     return [];
   }
 
+  @Query(() => Feed)
+  async getFeed(@Arg("id", () => Int) id: number) {
+    return await Feed.findOne({ id: id });
+  }
+
   @Mutation(() => Feed)
-async createFeed(@Arg("input") input: FeedInput): Promise<Feed> {
+  async createFeed(@Arg("input") input: FeedInput): Promise<Feed> {
     return Feed.create({
       ...input,
     }).save();

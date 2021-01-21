@@ -1,0 +1,10 @@
+query GetFeed($id: Int!) {
+  getFeed(id: $id) {
+    id
+    name
+    usernames
+    startDate
+    endDate
+    creator
+  }
+}

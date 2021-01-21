@@ -38,7 +38,7 @@ export class TwitterMiddleware {
       } as TwitterTweet;
 
       return twitterTweet;
-    } catch (err: any) {
+    } catch (err) {
       console.log(err);
       return undefined;
     }

@@ -1,6 +1,6 @@
 import { Feed } from "./../entities/Feed";
 import { Tweet } from "./../entities/Tweet";
-import { Resolver, Query, Arg, Ctx, Mutation } from "type-graphql";
+import { Resolver, Query, Arg, Ctx, Mutation, Int } from "type-graphql";
 import { ServerContext } from "src/types";
 
 // const user = await twitterClient.v2.userByUsername("gillarohith");
@@ -13,7 +13,7 @@ import { ServerContext } from "src/types";
 @Resolver()
 export class TweetResolver {
   @Query(() => [Tweet])
-  async tweets(@Arg("id") id: number) {
+  async tweets(@Arg("id", () => Int) id: number) {
     const tweets = await Tweet.find({
       where: {
         feedId: id,

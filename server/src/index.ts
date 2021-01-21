@@ -1,4 +1,3 @@
-import { Tweet } from "./entities/Tweet";
 import { FeedResolver } from "./resolvers/feed";
 import { TweetResolver } from "./resolvers/tweet";
 
@@ -26,10 +25,6 @@ const main = async () => {
   await conn.runMigrations();
 
   const middleware = new TwitterMiddleware(twitterClient);
-
-  console.log(await Tweet.find({}));
-
-  // const id: number = 34;
 
   const app = express();
 
